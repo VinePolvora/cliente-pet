@@ -14,7 +14,6 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class ClienteInfraRepository implements ClienteRepository {
-
 	private final ClienteSpringDataJPARepository clienteSpringDataJPARepository;
 
 	@Override
@@ -36,7 +35,7 @@ public class ClienteInfraRepository implements ClienteRepository {
 	@Override
 	public Cliente buscaClienteAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteInfraRepository - buscaClienteAtravesId");
-		Cliente cliente = clienteSpringDataJPARepository.findByIdCliente(idCliente)
+		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
 				.orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
 		log.info("[finaliza] ClienteInfraRepository - buscaClienteAtravesId");
 		return cliente;

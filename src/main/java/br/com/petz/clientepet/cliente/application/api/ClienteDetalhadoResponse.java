@@ -29,7 +29,7 @@ public class ClienteDetalhadoResponse {
 		this.telefone = cliente.getTelefone();
 		this.sexo = cliente.getSexo();
 		this.aceitaTermos = cliente.getAceitaTermos();
-		this.dataHoraDoCadastro = cliente.getDataHoraDaUltimaAlteracao();
+		this.dataHoraDoCadastro = cliente.getDataHoraDoCadastro();
 	}
 
 }
