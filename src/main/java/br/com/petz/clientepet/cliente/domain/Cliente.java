@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.petz.clientepet.cliente.application.api.ClienteAlteracaoRequest;
 import br.com.petz.clientepet.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -59,6 +60,16 @@ public class Cliente {
 		this.cpf = clienteRequest.getCpf();
 		this.aceitaTermos = clienteRequest.getAceitaTermos();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteOperacaoRequest) {
+		this.nomeCompleto = clienteOperacaoRequest.getNomeCompleto();
+		this.celular = clienteOperacaoRequest.getCelular();
+		this.telefone = clienteOperacaoRequest.getTelefone();
+		this.sexo = clienteOperacaoRequest.getSexo();
+		this.dataNascimento = clienteOperacaoRequest.getDataNascimento();
+		this.aceitaTermos = clienteOperacaoRequest.getAceitaTermos();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();		
 	}
 
 }
