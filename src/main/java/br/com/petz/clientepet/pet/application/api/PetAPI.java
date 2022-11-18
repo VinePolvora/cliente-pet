@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.petz.clientepet.cliente.application.api.ClienteDetalhadoResponse;
-
 @RestController
 @RequestMapping("/v1/cliente/{idCliente}/pet")
 public interface PetAPI {
@@ -28,8 +26,8 @@ public interface PetAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<PetClienteListResponse> getPetsDoClienteId(@PathVariable UUID idCliente);
 	
-	@GetMapping(value = "/{idPet}")
+	@GetMapping(value = "{idPet}")
 	@ResponseStatus(code = HttpStatus.OK)
-	ClienteDetalhadoResponse getClienteAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
+	PetClienteDetalheResponse getPetDoClienteComId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
 
 }
